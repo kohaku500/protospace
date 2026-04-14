@@ -1,0 +1,23 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザーログイン</h2>
+
+      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__text" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: "form__text" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class: "form__btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

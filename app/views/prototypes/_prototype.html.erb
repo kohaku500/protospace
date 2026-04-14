@@ -1,0 +1,24 @@
+<div class="card">
+<%# 修正後：画像が添付されているか確認する工程を追加 %>
+<%= link_to prototype_path(prototype) do %>
+  <% if prototype.image.attached? %>
+    <%= image_tag prototype.image, class: :card__img %>
+  <% else %>
+    <%# 画像がない場合の予備表示（必要に応じて） %>
+    <%= image_tag "no_image.png", class: :card__img %> 
+  <% end %>
+<% end %>
+
+  <div class="card__body">
+    <%# タイトルを表示する %>
+    <%= link_to prototype.title, prototype_path(prototype), class: :card__title %>
+
+    <p class="card__summary">
+      <%# キャッチコピーを表示する %>
+      <%= prototype.catch_copy %>
+    </p>
+
+    <%# プロトタイプの投稿者名 %>
+      <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: :card__user %>
+  </div>
+</div>
